@@ -1,20 +1,15 @@
 <template>
   <div class="flex flex-col">
-    
     <!-- Preview Card: What's happening -->
     <SidebarRightPreviewCard title="What's happening">
-
-      <SidebarRightPreviewCardItem v-for="whatsHappening in whatsHappeningItems">
+      <SidebarRightPreviewCardItem v-for="whatsHappening in whatsHappeningItems" :key="whatsHappening.title">
         <div>
           <h2 class="font-bold text-gray-800 text-md dark:text-white">{{ whatsHappening.title }}</h2>
-
-          <p class="text-xs text-gray-400">
-            {{ whatsHappening.count }}
-          </p>
+          <p class="text-xs text-gray-400">{{ whatsHappening.count }}</p>
         </div>
       </SidebarRightPreviewCardItem>
-
     </SidebarRightPreviewCard>
+
     <!-- Preview Card: Who to follow -->
     <SidebarRightPreviewCard title="Who to follow">
       <SidebarRightPreviewCardItem v-for="whoToFollow in whoToFollowItems">
@@ -26,29 +21,20 @@
               <p class="text-xs text-gray-400">{{ whoToFollow.handle }}</p>
             </div>
           </div>
-          <div class="flex  h-full">
-            <button class="px-4 py-2 text-xs font-bold text-white bg-black dark:text-black dark:bg-white rounded-full">Follow</button>
+          <div class="flex items-center h-full">
+            <button class="px-4 py-2 text-xs font-bold text-white bg-black rounded-full dark:text-black dark:bg-white">Follow</button>
           </div>
         </div>
       </SidebarRightPreviewCardItem>
     </SidebarRightPreviewCard>
   </div>
 </template>
-<script setup>
 
+<script setup>
 const whatsHappeningItems = ([
-  {
-    title: 'SpaceX',
-    count: '18.8k Tweets',
-  },
-  {
-    title: '#CodingIsFun',
-    count: '6.3k Tweets',
-  },
-  {
-    title: '#artforall',
-    count: '3.9k Tweets',
-  },
+  { title: 'SpaceX', count: '18.8k Tweets' },
+  { title: '#CodingIsFun', count: '8.8k Tweets' },
+  { title: '#artforall', count: '1.8k Tweets' },
 ])
 
 const whoToFollowItems = ref([
